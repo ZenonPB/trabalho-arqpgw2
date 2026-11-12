@@ -44,4 +44,4 @@ meu-projeto/
 │
 ├── .env
 ├── .env.example
-├── .gitignore
+├                         ── .gitignore
