@@ -1,11 +1,13 @@
- <!DOCTYPE html>
- <html lang="pt-BR">
- <head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acervo Elden Ring</title>
- </head>
- <body>
+</head>
+
+<body>
 
     <!-- Cabeçalho (Comum em todas as páginas) -->
     <header class="header">
@@ -20,16 +22,50 @@
         <div class="header__right-container">
             <nav class="header__nav" aria-label="Navegação principal">
                 <ul>
-                    <li><a href="#" class="header__nav-item">Bosses</a></li>
+                    <li><a href="../bosses/bosses.html" class="header__nav-item">Bosses</a></li>
                     <li><a href="../items/items.html" class="header__nav-item">Items</a></li>
                     <li><a href="../weapons/weapons.html" class="header__nav-item">Weapons</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    
+
     <main>
-        
+
+        <div class="search_container">
+            <input type="text" name="search" id="search" placeholder="Nome do boss, lugar, drop...">
+            <!-- TODO: Coloca icone de busca dps -->
+            <!-- TODO: Coloca icone de filtrar dps -->
+            <div id="dropdown-filtros" class="dropdown-filtros" hidden>
+                <p class="dropdown-titulo">Filtrar por categoria</p>
+                <label><input type="checkbox" class="filtro-check" value="" />1</label>
+                <label><input type="checkbox" class="filtro-check" value="" />2</label>
+                <label><input type="checkbox" class="filtro-check" value="" />3</label>
+            </div>
+            <button>Buscar</button>
+        </div>
+
+        <div class="card_boss">
+            <header>
+                <h2>Nome do Boss</h2>
+            </header>
+
+            <main>
+                <figure>
+                    <img src="#" alt="Foto do boss">
+                </figure>
+
+                <button>
+                    Ver detalhes
+                </button>
+            </main>
+        </div>
+
+        <hr>
+        <!-- Botão para carregar mais bosses -->
+
+        <button>Ver mais</button>
+
     </main>
 
     <!-- Rodapé (Comum em todas as páginas) -->
@@ -94,5 +130,6 @@
         </div>
 
     </footer>
- </body>
- </html>
+</body>
+
+</html>
