@@ -1,93 +1,83 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acervo Elden Ring</title>
+
+    <!-- Fonte Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <!-- Estilização (global e bootstrap) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/global.css">
+
 </head>
 
 <body>
 
     <!-- Cabeçalho (Comum em todas as páginas) -->
-    <header class="header">
-        <div class="header__left-container">
-            <a href="#" class="logo-container">
-                <figure>
-                    <img src="/public/assets/imgs/logo.webp" alt="Logo Elden Ring" class="logo">
-                </figure>
+    <header class="header navbar navbar-expand-md sticky-top py-2">
+        <div class="container">
+            <a href="index.html" class="logo-mark navbar-brand">
+                <img src="/public/assets/imgs/logo.webp" alt="Logo Elden Ring" class="logo">
             </a>
-        </div>
 
-        <div class="header__right-container">
-            <nav class="header__nav" aria-label="Navegação principal">
-                <ul>
-                    <li><a href="src\pages\bosses\bosses.html" class="header__nav-item">Bosses</a></li>
-                    <li><a href="src\pages\items\items.html" class="header__nav-item">Items</a></li>
-                    <li><a href="src\pages\weapons\weapons.html" class="header__nav-item">Weapons</a></li>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Abrir menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <nav class="collapse navbar-collapse justify-content-end header__nav" id="nav" aria-label="Navegação principal">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="/src/pages/weapons/weapons.html" class="nav-link header__nav-item">Armas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/src/pages/bosses/bosses.html" class="nav-link header__nav-item">Bosses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/src/pages/items/items.html" class="nav-link header__nav-item">Itens</a>
+                    </li>
                 </ul>
             </nav>
+
         </div>
     </header>
 
-    <main>
+    <main id="conteudo" tabindex="1">
 
         <!-- Seção de prévia de bosses -->
-        <section class="preview_section">
+        <section class="hero" aria-labelledby="titulo-inicio">
 
-            <header class="section__header-container">
-                <div class="section__left-container">
-                    <h2>Bosses</h2>
-                </div>
+            <!-- hgroup = usado quando um titulo tiver um subtitulo ou slogan ligado a ele, dai o hgroup liga eles semanticamente -->
+            <hgroup>
+                <p class="text-uppercase font-cinzel small mb-2" style="letter-spacing: .5em;color:var(--er-muted);">Limgrave</p>
+                <h1 class="fade-up" id="titulo-inicio">Acervo Elden Ring</h1>
+            </hgroup>
 
-                <div class="section__right-container">
-                    <a href="src\pages\bosses\bosses.html">Ver mais</a>
-                </div>
-            </header>
+            <div class="er-divider" aria-hidden="true"><span></span></div>
 
-            <main>
-                <span>Não foi possível carregar o conteúdo.</span>
-            </main>
+            <p class="lead fade-up" style="animation-delay:.15s;">"Ajoelhe-se, Maculado"</p>
 
+            <div class="d-flex gap-3 justify-content-center mt-4 fade-up">
+                <a href="" class="btn btn-er-solid">Explorar chefes</a>
+                <a href="" class="btn btn-er">Explorar arsenal</a>
+            </div>
         </section>
 
-        <!-- Seção de prévia de itens -->
-        <section class="preview_section">
+        <div class="container">
 
-            <header class="section__header-container">
-                <div class="section__left-container">
-                    <h2>Itens</h2>
-                </div>
+            <section class="preview_section" aria-labelledby="sec-bosses">
+                <header class="section__header-container">
+                    <h2 id="sec-bosses">Bosses</h2>
+                    <a href="src/pages/bosses/bosses.html" class="link-more">Ver mais</a>
+                </header>
+            </section>
 
-                <div class="section__right-container">
-                    <a href="src\pages\items\items.html">Ver mais</a>
-                </div>
-            </header>
-
-            <main>
-                <span>Não foi possível carregar o conteúdo.</span>
-            </main>
-
-        </section>
-
-        <!-- Seção de prévia de bosses -->
-        <section class="preview_section">
-
-            <header class="section__header-container">
-                <div class="section__left-container">
-                    <h2>Armas</h2>
-                </div>
-
-                <div class="section__right-container">
-                    <a href="src\pages\weapons\weapons.html">Ver mais</a>
-                </div>
-            </header>
-
-            <main>
-                <span>Não foi possível carregar o conteúdo.</span>
-            </main>
-
-        </section>
+        </div>
 
     </main>
 
@@ -153,6 +143,7 @@
         </div>
 
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
