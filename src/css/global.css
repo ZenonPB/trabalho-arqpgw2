@@ -1,0 +1,213 @@
+/* ===================== global.css (tema Elden Ring) ===================== */
+:root {
+  --er-bg: #0b0a08;
+  --er-bg-2: #13110d;
+  --er-surface: #181510;
+  --er-gold: #c9a85a;
+  --er-gold-bright: #e8cf8a;
+  --er-gold-dim: #7d6a3e;
+  --er-text: #d9cfb6;
+  --er-muted: #9a8f78;
+  --er-line: rgba(201, 168, 90, .28);
+
+  /* sobrescrevendo variáveis do Bootstrap */
+  --bs-body-bg: var(--er-bg);
+  --bs-body-color: var(--er-text);
+  --bs-body-font-family: "EB Garamond", Georgia, serif;
+  --bs-body-font-size: 1.1rem;
+  --bs-link-color-rgb: 201, 168, 90;
+  --bs-link-hover-color-rgb: 232, 207, 138;
+  --bs-border-color: var(--er-line);
+  --bs-emphasis-color: var(--er-gold-bright);
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(201,168,90,.13), transparent 60%),
+    radial-gradient(800px 500px at 50% 120%, rgba(120,80,30,.10), transparent 60%),
+    var(--er-bg);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, .font-cinzel {
+  font-family: "Cinzel", serif;
+  letter-spacing: .06em;
+  color: var(--er-gold-bright);
+}
+
+/* ---------- cabeçalho ---------- */
+.header {
+  background: linear-gradient(180deg, rgba(11,10,8,.96), rgba(11,10,8,.82));
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--er-line);
+}
+.logo-mark {
+  font-family: "Cinzel", serif; font-weight: 700;
+  font-size: 1.15rem; letter-spacing: .22em;
+  color: var(--er-gold); text-decoration: none;
+  display: flex; align-items: center; gap: .6rem;
+}
+.logo-mark small { display:block; font-size:.62rem; letter-spacing:.35em; color: var(--er-muted); font-weight:400; }
+.header__nav-item {
+  font-family: "Cinzel", serif; text-transform: uppercase;
+  font-size: .8rem; letter-spacing: .2em;
+  color: var(--er-text) !important; position: relative;
+  padding: .5rem 1rem !important;
+}
+.header__nav-item::after {
+  content: ""; position: absolute; left: 50%; bottom: .2rem;
+  width: 0; height: 1px; background: var(--er-gold);
+  transition: all .3s ease; transform: translateX(-50%);
+}
+.header__nav-item:hover, .header__nav-item.active { color: var(--er-gold-bright) !important; }
+.header__nav-item:hover::after, .header__nav-item.active::after { width: 60%; }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative; text-align: center;
+  padding: 6rem 1rem 5rem; overflow: hidden;
+}
+.hero::before { /* brilho da Árvore Áurea */
+  content: ""; position: absolute; inset: -40% 20% auto 20%; height: 140%;
+  background: radial-gradient(closest-side, rgba(232,207,138,.22), transparent 70%);
+  filter: blur(10px); pointer-events: none;
+}
+.hero h1 { font-size: clamp(2.2rem, 6vw, 4.2rem); font-weight: 600; text-shadow: 0 0 30px rgba(201,168,90,.35); }
+.hero .lead { color: var(--er-muted); font-style: italic; max-width: 40rem; margin: 0 auto; }
+.hero-sigil { width: 90px; opacity: .7; margin-bottom: 1.5rem; filter: drop-shadow(0 0 12px rgba(201,168,90,.5)); }
+
+/* divisor com losango */
+.er-divider {
+  display: flex; align-items: center; gap: 1rem;
+  color: var(--er-gold); margin: 2rem auto; max-width: 28rem;
+}
+.er-divider::before, .er-divider::after {
+  content: ""; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--er-gold-dim), transparent);
+}
+.er-divider span { width: 8px; height: 8px; transform: rotate(45deg); border: 1px solid var(--er-gold); }
+
+/* ---------- seções de prévia ---------- */
+.preview_section { padding: 3rem 0; }
+.section__header-container {
+  display: flex; align-items: end; justify-content: space-between;
+  border-bottom: 1px solid var(--er-line); padding-bottom: .75rem; margin-bottom: 2rem;
+}
+.section__header-container h2 { margin: 0; font-size: 1.6rem; }
+.section__header-container .eyebrow { font-family:"Cinzel",serif; font-size:.7rem; letter-spacing:.35em; color: var(--er-muted); text-transform: uppercase; }
+.link-more {
+  font-family: "Cinzel", serif; font-size: .78rem; letter-spacing: .2em;
+  text-transform: uppercase; text-decoration: none;
+}
+.link-more:hover { text-shadow: 0 0 10px rgba(232,207,138,.6); }
+
+/* ---------- cards (card_boss / card_item / card_weapon) ---------- */
+.er-card {
+  position: relative; height: 100%;
+  background: linear-gradient(180deg, var(--er-surface), var(--er-bg-2));
+  border: 1px solid var(--er-line);
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.er-card::before, .er-card::after { /* cantos ornamentados */
+  content: ""; position: absolute; width: 14px; height: 14px;
+  border: 1px solid var(--er-gold); pointer-events: none; z-index: 2;
+}
+.er-card::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.er-card::after { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+.er-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--er-gold-dim);
+  box-shadow: 0 10px 40px rgba(0,0,0,.6), 0 0 25px rgba(201,168,90,.15);
+}
+.er-card figure { margin: 0; aspect-ratio: 4/3; overflow: hidden; position: relative; }
+.er-card figure .ph { /* placeholder: troque pelo <img> da API */
+  width: 100%; height: 100%;
+  display: grid; place-items: center;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(201,168,90,.18), transparent 60%),
+    repeating-linear-gradient(135deg, #15120d 0 12px, #18150f 12px 24px);
+  transition: transform .6s ease;
+}
+.er-card figure img { width:100%; height:100%; object-fit: cover; filter: saturate(.85) contrast(1.05); transition: transform .6s ease; }
+.er-card:hover figure .ph, .er-card:hover figure img { transform: scale(1.06); }
+.er-card figure::after { /* vinheta */
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(11,10,8,.95));
+}
+.er-card .card-body { padding: 1rem 1.15rem 1.25rem; }
+.er-card h3 { font-size: 1.05rem; margin-bottom: .25rem; }
+.er-card .meta { font-size: .95rem; color: var(--er-muted); font-style: italic; }
+.er-badge {
+  font-family:"Cinzel",serif; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase;
+  border: 1px solid var(--er-line); color: var(--er-gold); padding: .25rem .5rem; background: rgba(11,10,8,.7);
+}
+
+/* ---------- botões ---------- */
+.btn-er {
+  --bs-btn-color: var(--er-gold);
+  --bs-btn-border-color: var(--er-gold-dim);
+  --bs-btn-hover-color: var(--er-bg);
+  --bs-btn-hover-bg: var(--er-gold);
+  --bs-btn-hover-border-color: var(--er-gold);
+  --bs-btn-active-bg: var(--er-gold-bright);
+  --bs-btn-active-color: var(--er-bg);
+  --bs-btn-border-radius: 0;
+  --bs-btn-focus-shadow-rgb: 201,168,90;
+  font-family: "Cinzel", serif; text-transform: uppercase;
+  letter-spacing: .18em; font-size: .75rem; padding: .6rem 1.25rem;
+}
+.btn-er-solid {
+  --bs-btn-color: var(--er-bg); --bs-btn-bg: var(--er-gold); --bs-btn-border-color: var(--er-gold);
+  --bs-btn-hover-bg: var(--er-gold-bright); --bs-btn-hover-border-color: var(--er-gold-bright); --bs-btn-hover-color: var(--er-bg);
+  --bs-btn-border-radius: 0;
+  font-family:"Cinzel",serif; text-transform:uppercase; letter-spacing:.18em; font-size:.75rem; padding:.6rem 1.4rem;
+  box-shadow: 0 0 20px rgba(201,168,90,.25);
+}
+
+/* ---------- busca + filtros ---------- */
+.search_container {
+  background: rgba(24,21,16,.8); border: 1px solid var(--er-line); padding: .5rem;
+}
+.search_container .form-control {
+  background: transparent; border: 0; border-radius: 0; color: var(--er-text);
+  font-size: 1.1rem; box-shadow: none;
+}
+.search_container .form-control::placeholder { color: var(--er-muted); font-style: italic; }
+.search_container .input-group-text { background: transparent; border: 0; color: var(--er-gold); }
+.dropdown-menu {
+  --bs-dropdown-bg: var(--er-surface); --bs-dropdown-border-color: var(--er-line);
+  --bs-dropdown-border-radius: 0; min-width: 15rem;
+}
+.dropdown-titulo { font-family:"Cinzel",serif; font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; color: var(--er-muted); }
+.form-check-input { border-radius: 0 !important; background-color: transparent; border-color: var(--er-gold-dim); }
+.form-check-input:checked { background-color: var(--er-gold); border-color: var(--er-gold); }
+
+/* ---------- modal de detalhes ---------- */
+.modal-content {
+  background: linear-gradient(180deg, var(--er-surface), var(--er-bg));
+  border: 1px solid var(--er-gold-dim); border-radius: 0;
+  box-shadow: 0 0 60px rgba(201,168,90,.15);
+}
+.modal-header, .modal-footer { border-color: var(--er-line); }
+.stat-row { display:flex; justify-content:space-between; border-bottom: 1px dashed var(--er-line); padding: .45rem 0; }
+.stat-row dt { font-weight: 400; color: var(--er-muted); }
+.stat-row dd { margin: 0; color: var(--er-gold-bright); }
+
+/* ---------- rodapé ---------- */
+footer.site-footer { border-top: 1px solid var(--er-line); background: linear-gradient(180deg, transparent, rgba(0,0,0,.5)); }
+footer.site-footer h2 { font-size: .9rem; letter-spacing: .25em; text-transform: uppercase; }
+footer.site-footer a { color: var(--er-text); text-decoration: none; }
+footer.site-footer a:hover { color: var(--er-gold-bright); }
+.footer-col + .footer-col { border-left: 1px solid var(--er-line); }
+@media (max-width: 767.98px) { .footer-col + .footer-col { border-left: 0; border-top: 1px solid var(--er-line); } }
+
+/* aparecer suave ao carregar */
+.fade-up { opacity: 0; transform: translateY(14px); animation: fadeUp .7s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+/* acessibilidade */
+.skip-link { position: absolute; left: 1rem; top: -3rem; z-index: 2000; background: var(--er-gold); color: var(--er-bg); padding: .5rem 1rem; font-family: "Cinzel", serif; }
+.skip-link:focus { top: 1rem; }
+.cards-list { list-style: none; padding: 0; margin: 0; }
+.logo { height: 44px; width: auto; }
+
