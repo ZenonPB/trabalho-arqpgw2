@@ -52,11 +52,27 @@
         <hr>
         <!-- Botão para carregar mais bosses -->
 
-        <button>Ver mais</button>
-
-        <script type="module" src="../../services/bosses.js"></script>
+        <button>See more</button>
 
     </main>
+
+    <script type="module" src="../../services/bosses.js" defer></script>
+
+    <!-- Mostra todas as do card -->
+    <dialog class="dialog">
+        <button class="close_dialog">X</button>
+
+        <div class="details">
+            <p class="name_dialog"></p>
+            <figure class="figure_dialog">
+                <img src="" class="picture_dialog" alt="Picture of the boss">
+            </figure>
+            <p class="description_dialog"></p>
+            <p class="location_dialog"></p>
+            <ul class="drops_dialog"></ul>
+            <p class="hp_dialog"></p>
+        </div>
+    </dialog>
 
     <!-- Rodapé (Comum em todas as páginas) -->
     <footer class="mt-20 border-t border-gray-200">

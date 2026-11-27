@@ -2,6 +2,7 @@ const API_URL = "https://eldenring.fanapis.com/api/"
 
 const CACHE_DURATION = 3600000;
 
+//Faz o fetch na API
 export async function getApi(endpoint,page,options = null){
     //Padrão do nome dos caches
     const cacheKey = `eldenringapi_${endpoint}_page_${page}`;
@@ -9,13 +10,15 @@ export async function getApi(endpoint,page,options = null){
     //Tenta buscar as informações no cache
     const cachedData = localStorage.getItem(cacheKey);
 
+    //Checa se existe dados no cache, caso existão verifica se eles são válidos, se os dados são existem e são válidos eles são retornados. Caso os dados não sejam válidos os remove da lista de cache
     if (cachedData){
         const parsedCache = JSON.parse(cachedData);
 
         if(parsedCache != null && Date.now() < parsedCache.expiration){
             return await parsedCache.data;
+        }else if(parsedCache == null){
+            localStorage.removeItem(cacheKey);
         }
-        localStorage.removeItem(cacheKey);
     }
 
     let response;
